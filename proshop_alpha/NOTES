@@ -1,0 +1,25 @@
+HOMESCREEN 404 ERROR: PROJECTS NOT SHOWING
+
+The reason the products were not showing on the homescreen and throwing you a 404 message
+was that you forgot to set up the proxy server in the frontend package.json file. 
+
+So the product data was located on the server at port 5000. But the frontend is listening on 
+3000. 
+Setting up the proxy server: 
+
+"proxy": "http://localhost:5000"
+
+right underneath "name" fixed the problem. 
+
+...............................................................
+
+500 ERROR
+
+In the root package json file, 
+
+"type": "module"
+
+underneath "main": "server.js"
+
+fixed the problem. 
+
