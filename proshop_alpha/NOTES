@@ -28,3 +28,10 @@ Redux Dev Flow (CRSA)
 
 Constants => Reducer => Store => Action
 
+===============================================================
+New Registered User
+
+name: Clinton Andrew
+email: clinton@example.com
+password: 123456
+
