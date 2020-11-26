@@ -8,12 +8,11 @@ import FormContainer from '../components/FormContainer'
 import { register } from '../actions/userActions'
 
 const RegisterScreen = ({ location, history }) => {
-    const [name, setName] = useState('')
+  const [name, setName] = useState('')
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const [confirmPassword, setConfirmPassword] = useState('')
   const [message, setMessage] = useState(null)
-  
 
   const dispatch = useDispatch()
 
@@ -30,10 +29,10 @@ const RegisterScreen = ({ location, history }) => {
 
   const submitHandler = (e) => {
     e.preventDefault()
-    if(password !== confirmPassword){
-        setMessage('Passwords Do Not Match')
+    if (password !== confirmPassword) {
+      setMessage('Passwords do not match')
     } else {
-        dispatch(register(name,email,password))
+      dispatch(register(name, email, password))
     }
   }
 
@@ -44,8 +43,7 @@ const RegisterScreen = ({ location, history }) => {
       {error && <Message variant='danger'>{error}</Message>}
       {loading && <Loader />}
       <Form onSubmit={submitHandler}>
-
-      <Form.Group controlId='name'>
+        <Form.Group controlId='name'>
           <Form.Label>Name</Form.Label>
           <Form.Control
             type='name'
@@ -66,7 +64,7 @@ const RegisterScreen = ({ location, history }) => {
         </Form.Group>
 
         <Form.Group controlId='password'>
-          <Form.Label>Password</Form.Label>
+          <Form.Label>Password Address</Form.Label>
           <Form.Control
             type='password'
             placeholder='Enter password'
@@ -79,7 +77,7 @@ const RegisterScreen = ({ location, history }) => {
           <Form.Label>Confirm Password</Form.Label>
           <Form.Control
             type='password'
-            placeholder='Confirm Password'
+            placeholder='Confirm password'
             value={confirmPassword}
             onChange={(e) => setConfirmPassword(e.target.value)}
           ></Form.Control>
@@ -92,7 +90,7 @@ const RegisterScreen = ({ location, history }) => {
 
       <Row className='py-3'>
         <Col>
-          Have an Account??{' '}
+          Have an Account?{' '}
           <Link to={redirect ? `/login?redirect=${redirect}` : '/login'}>
             Login
           </Link>

@@ -6,7 +6,8 @@ import { logout } from '../actions/userActions'
 
 const Header = () => {
   const dispatch = useDispatch()
-  const userLogin = useSelector((state)=> state.userLogin)
+
+  const userLogin = useSelector((state) => state.userLogin)
   const { userInfo } = userLogin
 
   const logoutHandler = () => {
@@ -29,19 +30,21 @@ const Header = () => {
                 </Nav.Link>
               </LinkContainer>
               {userInfo ? (
-                <NavDropdown title ={userInfo.name} id='username'>
+                <NavDropdown title={userInfo.name} id='username'>
                   <LinkContainer to='/profile'>
                     <NavDropdown.Item>Profile</NavDropdown.Item>
                   </LinkContainer>
-                  <NavDropdown.Item onClick={logoutHandler}>Logout</NavDropdown.Item>
+                  <NavDropdown.Item onClick={logoutHandler}>
+                    Logout
+                  </NavDropdown.Item>
                 </NavDropdown>
-              ) : 
-              <LinkContainer to='/login'>
-              <Nav.Link>
-                <i className='fas fa-user'></i> Sign In
-              </Nav.Link>
-            </LinkContainer> }
-              
+              ) : (
+                <LinkContainer to='/login'>
+                  <Nav.Link>
+                    <i className='fas fa-user'></i> Sign In
+                  </Nav.Link>
+                </LinkContainer>
+              )}
             </Nav>
           </Navbar.Collapse>
         </Container>
