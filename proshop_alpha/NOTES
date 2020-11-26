@@ -23,3 +23,8 @@ underneath "main": "server.js"
 
 fixed the problem. 
 
+===============================================================
+Redux Dev Flow (CRSA)
+
+Constants => Reducer => Store => Action
+
