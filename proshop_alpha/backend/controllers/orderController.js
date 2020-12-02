@@ -12,7 +12,7 @@ const addOrderItems = asyncHandler(async (req, res) => {
     itemsPrice,
     taxPrice,
     shippingPrice,
-    totalPrice
+    totalPrice,
   } = req.body
 
   if (orderItems && orderItems.length === 0) {
@@ -36,6 +36,26 @@ const addOrderItems = asyncHandler(async (req, res) => {
   }
 })
 
-export {
-    addOrderItems
-}
+// @desc Get orders by id
+// @route GET /api/order/:id
+// @ access Private
+const getOrderById = asyncHandler(async (req, res) => {
+  //fetch the order from db
+  //.populate puts the user's info into the order
+  const order = await Order.findById(req.params.id).populate(
+    "user",
+    "name email"
+  )
+  //check for the order
+  if (order) {
+    res.json(order)
+  } else {
+    res.status(404)
+    throw new Error("Order Not Found")
+  }
+})
+
+export { 
+  addOrderItems,
+  getOrderById
+ }

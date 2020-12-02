@@ -45,6 +45,7 @@ MONGO_URI = mongodb+srv://hotcoffeehero:mongo1234@proshop.qiu4a.mongodb.net/pros
 
 JWT_SECRET = abc123
 
-
-
 ================================================================
+
+In the backend, the controllers file is the one fetching info from the database. 
+Thus far it's info about users, product info and orders. 
