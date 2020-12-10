@@ -15,7 +15,6 @@ import {
   PRODUCT_UPDATE_REQUEST,
   PRODUCT_UPDATE_SUCCESS,
   PRODUCT_UPDATE_FAIL,
-  PRODUCT_UPDATE_RESET
 } from '../constants/productConstants'
 
 export const listProducts = () => async (dispatch) => {
@@ -125,7 +124,7 @@ export const createProduct = () => async (dispatch, getState) => {
   }
 }
 
-export const updateProduct = ( product ) => async (dispatch, getState) => {
+export const updateProduct = (product) => async (dispatch, getState) => {
   try {
     dispatch({
       type: PRODUCT_UPDATE_REQUEST,
@@ -137,12 +136,16 @@ export const updateProduct = ( product ) => async (dispatch, getState) => {
 
     const config = {
       headers: {
-        'Content-Type':'application/json',
+        'Content-Type': 'application/json',
         Authorization: `Bearer ${userInfo.token}`,
       },
     }
 
-    const { data } = await axios.put(`/api/products/${product._id}`, product, config)
+    const { data } = await axios.put(
+      `/api/products/${product._id}`,
+      product,
+      config
+    )
 
     dispatch({
       type: PRODUCT_UPDATE_SUCCESS,
